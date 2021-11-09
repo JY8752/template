@@ -1,0 +1,5 @@
+コード生成
+./gradlew mbGenerator
+
+もしくは
+InteliJのGradleタスクから実行
