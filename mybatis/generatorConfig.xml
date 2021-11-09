@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+    <!-- mysql-connector-javaのパス コード生成タスク実行時にMySQLに接続するため。 -->
+    <classPathEntry
+        location="/Users/user/.gradle/caches/modules-2/files-2.1/mysql/mysql-connector-java/8.0.23/14d64ac509adccaff444513c12646d93e4ed8be8/mysql-connector-java-8.0.23.jar"/>
+    <!-- Generatorの指定。MyBatis3Kotlinでkotlinのコードが生成される。 -->
+    <context id="MySQLTables" targetRuntime="MyBatis3Kotlin">
+        <plugin type="org.mybatis.generator.plugins.MapperAnnotationPlugin" />
+        <commentGenerator>
+            <property name="suppressData" value="true" />
+        </commentGenerator>
+        <!-- DB情報 -->
+        <jdbcConnection
+                driverClass="com.mysql.jdbc.Driver"
+                connectionURL="jdbc:mysql://127.0.0.1:3306/example"
+                userId="root"
+                password="mysql"
+        >
+            <!-- MySQL8系の場合、不要なコードが生成されるため -->
+            <property name="nullCatalogMeansCurrent" value="true" />
+        </jdbcConnection>
+        <!-- 出力先パス -->
+        <javaModelGenerator
+                targetPackage="com.example.demo.database"
+                targetProject="src/main/kotlin"
+        >
+        </javaModelGenerator>
+        <javaClientGenerator
+                targetPackage="com.example.demo.database"
+                targetProject="src/main/kotlin"
+        >
+        </javaClientGenerator>
+        <!-- テーブル名の指定。%はワイルドカードで全テーブル指定 -->
+        <table tableName="%" />
+    </context>
+</generatorConfiguration>
