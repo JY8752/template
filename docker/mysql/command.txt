@@ -1,0 +1,5 @@
+ターミナルからMySQLコンテナのDBにテーブル作成
+docker-compose exec -T db mysql -h 127.0.0.1 --port 3306 -uroot -pmysql <DB名> < ./db/create_table.sql
+
+DB接続
+mysql -h 127.0.0.1 --port 3306 -uroot -pmysql
