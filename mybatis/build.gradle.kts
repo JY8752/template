@@ -5,7 +5,8 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 plugins {
 	id("org.springframework.boot") version "2.5.6"
 	id("io.spring.dependency-management") version "1.0.11.RELEASE"
-	id("com.arenagod.gradle.MybatisGenerator") version "1.4" //追加
+  id("com.thinkimi.gradle.MybatisGenerator") version "2.3" //下記は更新されていないのでこっちを使う
+	//id("com.arenagod.gradle.MybatisGenerator") version "1.4" //追加
 	kotlin("jvm") version "1.5.31"
 	kotlin("plugin.spring") version "1.5.31"
 }
@@ -46,4 +47,8 @@ tasks.withType<Test> {
 mybatisGenerator {
 	verbose = true
 	configFile = "${projectDir}/src/main/resources/generatorConfig.xml"
+
+	dependencies {
+		mybatisGenerator("org.mybatis.generator:mybatis-generator-core:1.4.0")
+	}
 }
