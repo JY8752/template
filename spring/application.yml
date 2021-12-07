@@ -1,0 +1,22 @@
+spring:
+  # DB
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/book_manager?characterEncoding=utf8
+    username: root
+    password: mysql
+    driverClassName: com.mysql.cj.jdbc.Driver
+  # JSON
+  jackson:
+    property-naming-strategy: SNAKE_CASE
+logging:
+  level:
+    root: INFO
+    # mybatis SQLログ出力
+    org:
+      springframework: WARN
+    com:
+      book:
+        manager:
+          infrastructure:
+            database:
+              mapper: DEBUG
