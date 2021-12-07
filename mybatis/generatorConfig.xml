@@ -13,7 +13,7 @@
         </commentGenerator>
         <!-- DB情報 -->
         <jdbcConnection
-                driverClass="com.mysql.jdbc.Driver"
+                driverClass="com.mysql.cj.jdbc.Driver"
                 connectionURL="jdbc:mysql://127.0.0.1:3306/example"
                 userId="root"
                 password="mysql"
@@ -22,6 +22,7 @@
             <property name="nullCatalogMeansCurrent" value="true" />
         </jdbcConnection>
         <!-- 出力先パス -->
+        <!-- tagetPackageは作成しておかないとエラーになる -->
         <javaModelGenerator
                 targetPackage="com.example.demo.database"
                 targetProject="src/main/kotlin"
@@ -33,6 +34,7 @@
         >
         </javaClientGenerator>
         <!-- テーブル名の指定。%はワイルドカードで全テーブル指定 -->
+        <!-- カラムの型にenumなどの指定をここでできるがワイルドカード指定しているとうまくいかなかった -->
         <table tableName="%" />
     </context>
 </generatorConfiguration>
