@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package example.greeter; //生成されるファイルの出力先. java,kotlinはパッケージをかけばいい
+
+option java_multiple_files = true; //オプション指定.出力されるファイルの一部を分割するオプション.
+
+//Controller的なところ。rpc メソッド名 (リクエストの型) returns (レスポンスの型)
+service Greeter {
+  rpc Hello (HelloRequest) returns (HelloResponse);
+}
+
+//データ定義
+message HelloRequest {
+  string name = 1; //string型でnameというフィールドを定義。
+  //string name2 = 2; フィールドには順序を指定する必要があるため1つのときでも１を指定している。
+}
+
+message HelloResponse {
+  string text = 1;
+}
